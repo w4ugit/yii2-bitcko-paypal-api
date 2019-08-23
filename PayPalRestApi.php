@@ -83,7 +83,7 @@ class PayPalRestApi
 
         try {
             $payment->create($this->apiContext);
-            return \Yii::$app->controller->redirect($payment->getApprovalLink());
+            return $payment->getApprovalLink();
         }
         catch (PayPalConnectionException $ex) {
             // This will print the detailed information on the exception.
